@@ -17,10 +17,14 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 
+#include<QMediaPlayer>
+#include<QVideoWidget>
+#include<QSlider>
 
 //local header
 #include<webcookie.h>
-
+#include<browser.h>
+#include<localplayer.h>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -34,6 +38,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void showWeb();
+    void test();
 
 private:
     Ui::MainWindow *ui;
