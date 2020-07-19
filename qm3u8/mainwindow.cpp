@@ -15,9 +15,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 void MainWindow::showWeb(){
-//    browser browser;
-//    browser.show();
-    localplayer localplayer;
+    browser browser;
+    browser.show();
+//    localplayer localplayer;
 
 }
 

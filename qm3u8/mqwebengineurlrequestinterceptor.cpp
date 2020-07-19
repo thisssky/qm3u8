@@ -80,12 +80,14 @@ void MQWebEngineUrlRequestInterceptor::interceptRequest(QWebEngineUrlRequestInfo
         strInfo = "Unknown type";
         break;
     }
-    qDebug()<<info.requestUrl()<<":"<<info.requestMethod()<<":"<<strInfo;
-//    qDebug() << "RequestMethod===" << info.requestMethod() << "\n"
-//             << "RequestUrl===" << info.requestUrl() << "\n"
-//             << "RequestType===" << strInfo;
+    if(info.requestUrl().toString().endsWith(".m3u8")){
+        qDebug()<<info.requestUrl()<<":"<<info.requestMethod()<<":"<<strInfo;
+    }
+    //    qDebug() << "RequestMethod===" << info.requestMethod() << "\n"
+    //             << "RequestUrl===" << info.requestUrl() << "\n"
+    //             << "RequestType===" << strInfo;
 
     //Set the value of the Accept-Language HTTP request-header.
-//    info.setHttpHeader("Referer", "https://miao101.com/video/qX9kBHueaXjo6zdLbYAuEF");
-
+    //    info.setHttpHeader("Referer", "https://miao101.com/video/qX9kBHueaXjo6zdLbYAuEF");
+    info.setHttpHeader("Access-Control-Allow-Origin","*");
 }

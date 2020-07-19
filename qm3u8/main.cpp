@@ -1,4 +1,10 @@
 #include "mainwindow.h"
+#include <QtCore/QCoreApplication>
+#include <QtWidgets/QApplication>
+
+#include <VLCQtCore/Common.h>
+
+#include "SimplePlayer.h"
 
 //using namespace std;
 
@@ -19,11 +25,22 @@ QString getDateTime(QString dateString,QString formatter){
 
 int main(int argc, char *argv[])
 {
+
+    QCoreApplication::setApplicationName("VLC-Qt Simple Player");
+    QCoreApplication::setAttribute(Qt::AA_X11InitThreads);
+
+    QApplication app(argc, argv);
+    VlcCommon::setPluginPath(app.applicationDirPath() + "/plugins");
+//https://youku.cdn7-okzy.com/20191122/15896_e32b5e7c/1000k/hls/index.m3u8
+    SimplePlayer mainWindow;
+    mainWindow.show();
+
+
 //    QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
-    QApplication a(argc, argv);
+//    QApplication app(argc, argv);
 //    QtWebEngine::initialize();
-    MainWindow w;
-    w.show();
+//    MainWindow w;
+//    w.show();
 
 
     //    QTextStream cout(stdout, QIODevice::WriteOnly);
@@ -35,6 +52,6 @@ int main(int argc, char *argv[])
     //    webcookie.getLocalCookie();
     //    QString d= getDateTime("","");
     //    cout<<d<<endl;
-    return a.exec();
+    return app.exec();
 
 }

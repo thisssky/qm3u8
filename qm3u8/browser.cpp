@@ -13,7 +13,7 @@ void browser::show(){
     QWebEngineSettings::defaultSettings()->setAttribute(QWebEngineSettings::FullScreenSupportEnabled, true);
 
     QWebEngineView *view=new QWebEngineView();
-    view->load(QUrl("http://sdcren.com/video/?16399-0-34.html"));
+    view->load(QUrl("http://miao101.com"));
     QWebEngineProfile *profile=  QWebEngineProfile::defaultProfile();
     profile->setPersistentCookiesPolicy(QWebEngineProfile::PersistentCookiesPolicy::AllowPersistentCookies);
     MQWebEngineUrlRequestInterceptor *webInterceptor = new MQWebEngineUrlRequestInterceptor();

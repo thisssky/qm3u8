@@ -22,6 +22,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    EqualizerDialog.cpp \
+    SimplePlayer.cpp \
     browser.cpp \
     localplayer.cpp \
     main.cpp \
@@ -30,6 +32,8 @@ SOURCES += \
     webcookie.cpp
 
 HEADERS += \
+    EqualizerDialog.h \
+    SimplePlayer.h \
     browser.h \
     localplayer.h \
     mainwindow.h \
@@ -37,10 +41,16 @@ HEADERS += \
     webcookie.h
 
 FORMS += \
+    EqualizerDialog.ui \
+    SimplePlayer.ui \
     mainwindow.ui
 
 TRANSLATIONS += \
     qm3u8_zh_CN.ts
+
+# Edit below for custom library location
+LIBS       += -L/usr/local/lib -lVLCQtCore -lVLCQtWidgets
+INCLUDEPATH += /usr/local/include
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
