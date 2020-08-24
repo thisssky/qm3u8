@@ -21,10 +21,11 @@
 #include <QDebug>
 #include <QSqlQuery>
 
-class WebCookie
+
+class webcookie
 {
 public:
-    WebCookie();
+    webcookie();
     void loadCookie();
     void getLocalCookie();
 };

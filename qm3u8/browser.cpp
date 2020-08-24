@@ -1,11 +1,47 @@
 #include "browser.h"
+#include "browserwindow.h"
 
-browser::browser(QObject *parent) : QObject(parent)
+Browser::Browser()
 {
+    // Quit application if the download manager window is the only remaining window
+    m_downloadManagerWidget.setAttribute(Qt::WA_QuitOnClose, false);
 
+    QObject::connect(
+        QWebEngineProfile::defaultProfile(), &QWebEngineProfile::downloadRequested,
+        &m_downloadManagerWidget, &DownloadManagerWidget::downloadRequested);
 }
 
-void browser::show(){
+BrowserWindow *Browser::createWindow(bool offTheRecord)
+{
+    if (offTheRecord && !m_otrProfile) {
+        m_otrProfile.reset(new QWebEngineProfile);
+        QObject::connect(
+            m_otrProfile.get(), &QWebEngineProfile::downloadRequested,
+            &m_downloadManagerWidget, &DownloadManagerWidget::downloadRequested);
+    }
+    auto profile = offTheRecord ? m_otrProfile.get() : QWebEngineProfile::defaultProfile();
+    auto mainWindow = new BrowserWindow(this, profile, false);
+    m_windows.append(mainWindow);
+    QObject::connect(mainWindow, &QObject::destroyed, [this, mainWindow]() {
+        m_windows.removeOne(mainWindow);
+    });
+    mainWindow->show();
+    return mainWindow;
+}
+
+BrowserWindow *Browser::createDevToolsWindow()
+{
+    auto profile = QWebEngineProfile::defaultProfile();
+    auto mainWindow = new BrowserWindow(this, profile, true);
+    m_windows.append(mainWindow);
+    QObject::connect(mainWindow, &QObject::destroyed, [this, mainWindow]() {
+        m_windows.removeOne(mainWindow);
+    });
+    mainWindow->show();
+    return mainWindow;
+}
+
+void Browser::show(){
     QWebEngineSettings::defaultSettings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
    QWebEngineSettings::defaultSettings()->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
    QWebEngineSettings::defaultSettings()->setAttribute(QWebEngineSettings::PlaybackRequiresUserGesture, true);
@@ -24,7 +60,7 @@ void browser::show(){
 //    view->page()->setDevToolsPage(pdev->page());
 }
 
-void browser::show2(){
+void Browser::show2(){
     QWidget wi;
         QMediaPlayer* player = new QMediaPlayer(0, QMediaPlayer::VideoSurface);
         QVideoWidget* vw = new QVideoWidget;

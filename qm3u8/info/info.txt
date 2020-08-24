@@ -1,0 +1,6 @@
+                QmainWindow        QTabWidget   QWebEngineView  QWebEnginePage
+                     ^                  ^              ^              ^
+                     |                  |              |              |
+Browser-1----n-BrowserWindow-1----1-TabWidget-1----n-WebView-1----1-WebPage
+
+https://doc.qt.io/qt-5/qtwebengine-webenginewidgets-simplebrowser-example.html

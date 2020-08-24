@@ -22,37 +22,52 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    EqualizerDialog.cpp \
-    SimplePlayer.cpp \
     browser.cpp \
+    browserwindow.cpp \
+    downloadmanagerwidget.cpp \
+    downloadwidget.cpp \
     localplayer.cpp \
     main.cpp \
     mainwindow.cpp \
     mqwebengineurlrequestinterceptor.cpp \
-    webcookie.cpp
+    tabwidget.cpp \
+    webcookie.cpp \
+    webpage.cpp \
+    webpopupwindow.cpp \
+    webview.cpp
 
 HEADERS += \
-    EqualizerDialog.h \
-    SimplePlayer.h \
     browser.h \
+    browserwindow.h \
+    downloadmanagerwidget.h \
+    downloadwidget.h \
     localplayer.h \
     mainwindow.h \
     mqwebengineurlrequestinterceptor.h \
-    webcookie.h
+    tabwidget.h \
+    webcookie.h \
+    webpage.h \
+    webpopupwindow.h \
+    webview.h
 
 FORMS += \
-    EqualizerDialog.ui \
-    SimplePlayer.ui \
-    mainwindow.ui
+    certificateerrordialog.ui \
+    downloadmanagerwidget.ui \
+    downloadwidget.ui \
+    mainwindow.ui \
+    passworddialog.ui
 
 TRANSLATIONS += \
     qm3u8_zh_CN.ts
 
 # Edit below for custom library location
-LIBS       += -L/usr/local/lib -lVLCQtCore -lVLCQtWidgets
-INCLUDEPATH += /usr/local/include
+#LIBS       += -L/usr/local/lib -lVLCQtCore -lVLCQtWidgets
+#INCLUDEPATH += /usr/local/include
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    info/info.txt

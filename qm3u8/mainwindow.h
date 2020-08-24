@@ -21,8 +21,11 @@
 #include<QVideoWidget>
 #include<QSlider>
 
+#include<QHBoxLayout>
+#include<QLabel>
+#include<QTextEdit>
+
 //local header
-#include<webcookie.h>
 #include<browser.h>
 #include<localplayer.h>
 QT_BEGIN_NAMESPACE
@@ -39,6 +42,11 @@ public:
     ~MainWindow();
     void showWeb();
     void test();
+    QWebEngineView *browser;
+    QLabel *backLabel;
+    QLabel *refreshLabel;
+    QLabel *forwardLabel;
+    QLabel *mainPageLabel;
 
 private:
     Ui::MainWindow *ui;

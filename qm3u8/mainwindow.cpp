@@ -6,7 +6,13 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    showWeb();
+    browser=new QWebEngineView();
+//    ui->centralwidget->setLayout(
+
+QHBoxLayout *hboxLayout=new QHBoxLayout();
+backLabel=new QLabel("ss");
+hboxLayout->addWidget(backLabel);
+this->centralWidget()->setLayout(hboxLayout);
 
 }
 
@@ -15,8 +21,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 void MainWindow::showWeb(){
-    browser browser;
-    browser.show();
+    /*browser*/ browser;
+//    browser.show();
 //    localplayer localplayer;
 
 }

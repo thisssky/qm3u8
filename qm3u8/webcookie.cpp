@@ -1,12 +1,11 @@
 #include "webcookie.h"
 
-
-WebCookie::WebCookie()
+webcookie::webcookie()
 {
 
 }
 
-void WebCookie::loadCookie(){
+void webcookie::loadCookie(){
 
     QWebEngineView *view=new QWebEngineView();
     view->load(QUrl("https://kyfw.12306.cn"));
@@ -29,7 +28,7 @@ void WebCookie::loadCookie(){
 
 
 
-void WebCookie::getLocalCookie(){
+void webcookie::getLocalCookie(){
     QStringList qlist=QSqlDatabase::drivers();
     foreach(QString qlists,qlist){
 //        cout<<qlists.toStdString()<<endl;
