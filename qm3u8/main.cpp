@@ -38,8 +38,7 @@ QUrl commandLineUrlArgument()
     }
     return QUrl(QStringLiteral("https://www.qt.io"));
 }
-int main(int argc, char *argv[])
-{
+void old(){
 
     //    QCoreApplication::setApplicationName("VLC-Qt Simple Player");
     //    QCoreApplication::setAttribute(Qt::AA_X11InitThreads);
@@ -71,7 +70,8 @@ int main(int argc, char *argv[])
     //    MyWindow myWindow;
     //    myWindow.show();
     //    return app.exec();
-
+}
+int start(int argc, char *argv[]){
 
     QCoreApplication::setOrganizationName("QtExamples");
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -84,6 +84,9 @@ int main(int argc, char *argv[])
 #if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
     QWebEngineSettings::defaultSettings()->setAttribute(QWebEngineSettings::DnsPrefetchEnabled, true);
     QWebEngineProfile::defaultProfile()->setUseForGlobalCertificateVerification();
+    MQWebEngineUrlRequestInterceptor *requestInterceptor=new MQWebEngineUrlRequestInterceptor();
+    QWebEngineProfile::defaultProfile()->setRequestInterceptor(requestInterceptor);
+
 #endif
 
     //    QUrl url = commandLineUrlArgument();
@@ -93,4 +96,10 @@ int main(int argc, char *argv[])
     window->tabWidget()->setUrl(url);
 
     return app.exec();
+}
+int main(int argc, char *argv[])
+{
+    int result=start(argc,argv);
+
+    return result;
 }

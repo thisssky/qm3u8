@@ -20,6 +20,10 @@ BrowserWindow *Browser::createWindow(bool offTheRecord)
             &m_downloadManagerWidget, &DownloadManagerWidget::downloadRequested);
     }
     auto profile = offTheRecord ? m_otrProfile.get() : QWebEngineProfile::defaultProfile();
+    //添加过滤
+    MQWebEngineUrlRequestInterceptor *webInterceptor = new MQWebEngineUrlRequestInterceptor();
+    profile->setRequestInterceptor(webInterceptor);
+
     auto mainWindow = new BrowserWindow(this, profile, false);
     m_windows.append(mainWindow);
     QObject::connect(mainWindow, &QObject::destroyed, [this, mainWindow]() {

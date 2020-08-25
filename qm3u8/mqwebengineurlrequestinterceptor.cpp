@@ -80,14 +80,13 @@ void MQWebEngineUrlRequestInterceptor::interceptRequest(QWebEngineUrlRequestInfo
         strInfo = "Unknown type";
         break;
     }
-    if(info.requestUrl().toString().endsWith(".m3u8")){
-        qDebug()<<info.requestUrl()<<":"<<info.requestMethod()<<":"<<strInfo;
+    if(info.requestUrl().toString().contains(".m3u8")){
+        qDebug()<<info.requestMethod()<<":"<<info.requestUrl()<<"\n";
     }
-    //    qDebug() << "RequestMethod===" << info.requestMethod() << "\n"
-    //             << "RequestUrl===" << info.requestUrl() << "\n"
-    //             << "RequestType===" << strInfo;
-
+    if(info.requestUrl().toString().contains(".mp4")){
+        qDebug()<<info.requestMethod()<<":"<<info.requestUrl()<<"\n";
+    }
     //Set the value of the Accept-Language HTTP request-header.
     //    info.setHttpHeader("Referer", "https://miao101.com/video/qX9kBHueaXjo6zdLbYAuEF");
-    info.setHttpHeader("Access-Control-Allow-Origin","*");
+    //    info.setHttpHeader("Access-Control-Allow-Origin","*");
 }

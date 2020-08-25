@@ -31,6 +31,8 @@ SOURCES += \
     mainwindow.cpp \
     mqwebengineurlrequestinterceptor.cpp \
     tabwidget.cpp \
+    thread/downloadthread.cpp \
+    thread/mwdiget.cpp \
     webcookie.cpp \
     webpage.cpp \
     webpopupwindow.cpp \
@@ -45,6 +47,8 @@ HEADERS += \
     mainwindow.h \
     mqwebengineurlrequestinterceptor.h \
     tabwidget.h \
+    thread/downloadthread.h \
+    thread/mwdiget.h \
     webcookie.h \
     webpage.h \
     webpopupwindow.h \
@@ -70,4 +74,26 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    icons/AppLogoColor.png \
+    icons/addtab.png \
+    icons/closetab.png \
+    icons/defaulticon.png \
+    icons/dialog-error.png \
+    icons/edit-clear.png \
+    icons/favicon.png \
+    icons/go-bottom.png \
+    icons/go-next.png \
+    icons/go-previous.png \
+    icons/history.png \
+    icons/image.png \
+    icons/image2.png \
+    icons/model.png \
+    icons/ninja.png \
+    icons/process-stop.png \
+    icons/small-favicon.png \
+    icons/text-html.png \
+    icons/view-refresh.png \
     info/info.txt
+
+RESOURCES += \
+    icons/icons.qrc

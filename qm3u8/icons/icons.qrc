@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file>addtab.png</file>
+        <file>AppLogoColor.png</file>
+        <file>closetab.png</file>
+        <file>defaulticon.png</file>
+        <file>dialog-error.png</file>
+        <file>edit-clear.png</file>
+        <file>favicon.png</file>
+        <file>go-bottom.png</file>
+        <file>go-next.png</file>
+        <file>go-previous.png</file>
+        <file>history.png</file>
+        <file>image.png</file>
+        <file>image2.png</file>
+        <file>model.png</file>
+        <file>ninja.png</file>
+        <file>process-stop.png</file>
+        <file>small-favicon.png</file>
+        <file>text-html.png</file>
+        <file>view-refresh.png</file>
+    </qresource>
+</RCC>
