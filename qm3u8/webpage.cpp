@@ -20,6 +20,7 @@ WebPage::WebPage(QWebEngineProfile *profile, QObject *parent)
 #if !defined(QT_NO_SSL) || QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     connect(this, &QWebEnginePage::selectClientCertificate, this, &WebPage::handleSelectClientCertificate);
 #endif
+
 }
 
 bool WebPage::certificateError(const QWebEngineCertificateError &error)

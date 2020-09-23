@@ -80,11 +80,12 @@ void MQWebEngineUrlRequestInterceptor::interceptRequest(QWebEngineUrlRequestInfo
         strInfo = "Unknown type";
         break;
     }
+    signalRequest(info);
     if(info.requestUrl().toString().contains(".m3u8")){
-        qDebug()<<info.requestMethod()<<":"<<info.requestUrl()<<"\n";
+        qDebug()<<info.requestMethod()<<":"<<info.requestUrl().toString()<<"\n";
     }
     if(info.requestUrl().toString().contains(".mp4")){
-        qDebug()<<info.requestMethod()<<":"<<info.requestUrl()<<"\n";
+        qDebug()<<info.requestMethod()<<":"<<info.requestUrl().toString()<<"\n";
     }
     //Set the value of the Accept-Language HTTP request-header.
     //    info.setHttpHeader("Referer", "https://miao101.com/video/qX9kBHueaXjo6zdLbYAuEF");

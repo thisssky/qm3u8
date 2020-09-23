@@ -37,5 +37,7 @@ private:
     QVector<BrowserWindow*> m_windows;
     DownloadManagerWidget m_downloadManagerWidget;
     QScopedPointer<QWebEngineProfile> m_otrProfile;
+    MQWebEngineUrlRequestInterceptor   *m_requestInterceptor;
+
 };
 #endif // BROWSER_H

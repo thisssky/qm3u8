@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QTime>
 #include <QWebEnginePage>
-
+#include <QWebEngineUrlRequestInfo>
 QT_BEGIN_NAMESPACE
 class QLineEdit;
 class QProgressBar;
@@ -24,11 +24,11 @@ public:
     TabWidget *tabWidget() const;
     WebView *currentTab() const;
     Browser *browser() { return m_browser; }
-
 protected:
     void closeEvent(QCloseEvent *event) override;
 
 private slots:
+
     void handleNewWindowTriggered();
     void handleNewIncognitoWindowTriggered();
     void handleFileOpenTriggered();

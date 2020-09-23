@@ -26,13 +26,15 @@ SOURCES += \
     browserwindow.cpp \
     downloadmanagerwidget.cpp \
     downloadwidget.cpp \
+    dto/EXTINF.cpp \
     localplayer.cpp \
     main.cpp \
     mainwindow.cpp \
     mqwebengineurlrequestinterceptor.cpp \
+    runnable/downloadtsrunnable.cpp \
+    runnable/sig.cpp \
+    runnable/slo.cpp \
     tabwidget.cpp \
-    thread/downloadthread.cpp \
-    thread/mwdiget.cpp \
     webcookie.cpp \
     webpage.cpp \
     webpopupwindow.cpp \
@@ -43,12 +45,14 @@ HEADERS += \
     browserwindow.h \
     downloadmanagerwidget.h \
     downloadwidget.h \
+    dto/EXTINF.h \
     localplayer.h \
     mainwindow.h \
     mqwebengineurlrequestinterceptor.h \
+    runnable/downloadtsrunnable.h \
+    runnable/sig.h \
+    runnable/slo.h \
     tabwidget.h \
-    thread/downloadthread.h \
-    thread/mwdiget.h \
     webcookie.h \
     webpage.h \
     webpopupwindow.h \

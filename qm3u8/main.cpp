@@ -7,7 +7,12 @@
 #include <QApplication>
 #include <QWebEngineProfile>
 #include <QWebEngineSettings>
-
+#include <QRunnable>
+#include <QThread>
+#include <QThreadPool>
+#include "runnable/downloadtsrunnable.h"
+#include "runnable/sig.h"
+#include "runnable/slo.h"
 
 //#include <VLCQtCore/Common.h>
 
@@ -90,16 +95,40 @@ int start(int argc, char *argv[]){
 #endif
 
     //    QUrl url = commandLineUrlArgument();
-    QUrl url=QUrl("https://www.baidu.com");
+    //    QUrl url=QUrl("https://www.mye1207eazahybiy.top:59980/index.php/vod/play/id/111202/sid/1/nid/1.html");
+    QUrl url=QUrl("https://www.bilibili.com");
+
     Browser browser;
     BrowserWindow *window = browser.createWindow();
     window->tabWidget()->setUrl(url);
 
     return app.exec();
 }
+void ss(){
+    sig *s=new sig();
+    slo *sl=new slo() ;
+
+    QObject::connect(s,&sig::emitsig,sl,&slo::slos);
+    s->emitsig();
+}
+int tsthread(int argc, char *argv[]){
+    QCoreApplication a(argc, argv);
+    qDebug() << "main thread id: " << (int)QThread::currentThreadId();
+
+    ss();
+
+    DownloadTsRunnable *runnable=new DownloadTsRunnable();
+    QThreadPool::globalInstance()->start(runnable);
+    QThreadPool::globalInstance()->waitForDone();
+//    qDebug() << "end";
+    return a.exec();
+
+}
+
 int main(int argc, char *argv[])
 {
-    int result=start(argc,argv);
-
+    int result;
+          result=start(argc,argv);
+//    result=tsthread(argc,argv);
     return result;
 }
