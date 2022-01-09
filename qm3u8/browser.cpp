@@ -12,8 +12,8 @@ Browser::Browser()
 
     //添加过滤
     m_requestInterceptor = new MQWebEngineUrlRequestInterceptor();
-//    QWebEngineProfile::defaultProfile()->setRequestInterceptor(m_requestInterceptor);
-    QWebEngineProfile::defaultProfile()->setUrlRequestInterceptor(m_requestInterceptor);
+    QWebEngineProfile::defaultProfile()->setRequestInterceptor(m_requestInterceptor);
+//    QWebEngineProfile::defaultProfile()->setUrlRequestInterceptor(m_requestInterceptor);
 
 }
 

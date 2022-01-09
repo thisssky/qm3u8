@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QApplication>
@@ -24,6 +24,9 @@
 #include<QHBoxLayout>
 #include<QLabel>
 #include<QTextEdit>
+#include<QPushButton>
+#include<QTableWidget>
+#include<QLineEdit>
 
 //local header
 #include<browser.h>
@@ -50,5 +53,8 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QPushButton *downloadButton;
+    QTableWidget *tableWidget;
+    QLineEdit *txtUrl;
 };
 #endif // MAINWINDOW_H

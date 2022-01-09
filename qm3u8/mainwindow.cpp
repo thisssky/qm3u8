@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 //using namespace std;
 MainWindow::MainWindow(QWidget *parent)
@@ -10,10 +10,19 @@ MainWindow::MainWindow(QWidget *parent)
 //    ui->centralwidget->setLayout(
 
 QHBoxLayout *hboxLayout=new QHBoxLayout();
-backLabel=new QLabel("ss");
-hboxLayout->addWidget(backLabel);
-this->centralWidget()->setLayout(hboxLayout);
+//backLabel=new QLabel("ss");
+//hboxLayout->addWidget(backLabel);
 
+
+    txtUrl=new QLineEdit();
+    tableWidget=new QTableWidget();
+    downloadButton=new QPushButton("下载");
+    hboxLayout->addWidget(txtUrl);
+    hboxLayout->addWidget(downloadButton);
+    hboxLayout->addWidget(tableWidget);
+
+
+    this->centralWidget()->setLayout(hboxLayout);
 }
 
 MainWindow::~MainWindow()
